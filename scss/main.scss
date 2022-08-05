@@ -14,6 +14,41 @@ $Light-grayish-violet: hsl(270, 3%, 87%);
 $Dark-grayish-violet: hsl(279, 6%, 55%);
 $Very-dark-violet: hsl(278, 68%, 11%);
 
+@keyframes float-01 {
+    0% {
+        transform: scale(1);
+        top: 180px;
+        // transform: translateY(20px);
+    }
+    50% {
+        transform: scale(1.05);
+        top: 190px;
+        // transform: translateY(0px);
+    }
+    100% {
+        transform: scale(1);
+        top: 180px;
+        // transform: translateY(20px);
+    }
+}
+@keyframes float-02 {
+    0% {
+        transform: scale(1);
+        top: 46rem;
+        // transform: translateY(20px);
+    }
+    50% {
+        transform: scale(1.05);
+        top: 46rem;
+        // transform: translateY(0px);
+    }
+    100% {
+        transform: scale(1);
+        top: 46rem;
+        // transform: translateY(20px);
+    }
+}
+
 body {
     position: relative;
     width: 100%;
@@ -35,6 +70,7 @@ body {
             color: white;
         }
         .front {
+            animation: float-01 8s ease-in-out infinite;
             background: url(../images/bg-card-front.png);
             display: flex;
             flex-direction: column;
@@ -63,6 +99,7 @@ body {
             }
         }
         .back {
+            animation: float-02 5s ease-in-out infinite;
             background: url(../images/bg-card-back.png);
             top: 46rem;
             left: 21rem;
@@ -78,5 +115,63 @@ body {
     .content {
         width: 70%;
         background-color: $white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+        form {
+            width: 100%;
+            max-width: 35rem;
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 2rem;
+                label {
+                    color: $Very-dark-violet;
+                    font-weight: 500;
+                    font-size: 1.3rem;
+                    letter-spacing: 0.1rem;
+                    margin-bottom: 1rem;
+                }
+                input[type=text], input[type=number] {
+                    width: 100%;
+                    line-height: 4rem;
+                    border: 1px solid $Light-grayish-violet;
+                    border-radius: 11px;
+                    padding-left: 1.5rem;
+                    &::placeholder {
+                        color: $Light-grayish-violet;
+                        font-size: 1.8rem;
+                    }
+                    &:hover {
+                        outline: 1px solid $Very-dark-violet;
+                    }
+                }
+                &.last {
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    margin-bottom: 4rem;
+                    label {
+                        display: block;
+                    }
+                    .exp-date {
+                        width: 63%;
+                        input[type=number] {
+                            width: 42%;
+                        }
+                    }
+                }
+            }
+            input[type=submit] {
+                width: 100%;
+                background-color: $Very-dark-violet;
+                color: $white;
+                line-height: 4rem;
+                font-size: 1.7rem;
+                font-weight: 500;
+                border-radius: 8px;
+                border: none;
+            }
+        }
     }
 }

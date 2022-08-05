@@ -9,6 +9,63 @@ html {
   font-size: 62.5%;
 }
 
+@-webkit-keyframes float-01 {
+  0% {
+    transform: scale(1);
+    top: 180px;
+  }
+  50% {
+    transform: scale(1.05);
+    top: 190px;
+  }
+  100% {
+    transform: scale(1);
+    top: 180px;
+  }
+}
+
+@keyframes float-01 {
+  0% {
+    transform: scale(1);
+    top: 180px;
+  }
+  50% {
+    transform: scale(1.05);
+    top: 190px;
+  }
+  100% {
+    transform: scale(1);
+    top: 180px;
+  }
+}
+@-webkit-keyframes float-02 {
+  0% {
+    transform: scale(1);
+    top: 46rem;
+  }
+  50% {
+    transform: scale(1.05);
+    top: 46rem;
+  }
+  100% {
+    transform: scale(1);
+    top: 46rem;
+  }
+}
+@keyframes float-02 {
+  0% {
+    transform: scale(1);
+    top: 46rem;
+  }
+  50% {
+    transform: scale(1.05);
+    top: 46rem;
+  }
+  100% {
+    transform: scale(1);
+    top: 46rem;
+  }
+}
 body {
   position: relative;
   width: 100%;
@@ -32,6 +89,8 @@ body .card .front, body .card .back {
   color: white;
 }
 body .card .front {
+  -webkit-animation: float-01 8s ease-in-out infinite;
+          animation: float-01 8s ease-in-out infinite;
   background: url(../images/bg-card-front.png);
   display: flex;
   flex-direction: column;
@@ -52,6 +111,8 @@ body .card .front .card-info .name_date .name {
   text-transform: uppercase;
 }
 body .card .back {
+  -webkit-animation: float-02 5s ease-in-out infinite;
+          animation: float-02 5s ease-in-out infinite;
   background: url(../images/bg-card-back.png);
   top: 46rem;
   left: 21rem;
@@ -66,4 +127,70 @@ body .card .back .cvc {
 body .content {
   width: 70%;
   background-color: hsl(0deg, 0%, 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+body .content form {
+  width: 100%;
+  max-width: 35rem;
+}
+body .content form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+body .content form .form-group label {
+  color: hsl(278deg, 68%, 11%);
+  font-weight: 500;
+  font-size: 1.3rem;
+  letter-spacing: 0.1rem;
+  margin-bottom: 1rem;
+}
+body .content form .form-group input[type=text], body .content form .form-group input[type=number] {
+  width: 100%;
+  line-height: 4rem;
+  border: 1px solid hsl(270deg, 3%, 87%);
+  border-radius: 11px;
+  padding-left: 1.5rem;
+}
+body .content form .form-group input[type=text]::-moz-placeholder, body .content form .form-group input[type=number]::-moz-placeholder {
+  color: hsl(270deg, 3%, 87%);
+  font-size: 1.8rem;
+}
+body .content form .form-group input[type=text]:-ms-input-placeholder, body .content form .form-group input[type=number]:-ms-input-placeholder {
+  color: hsl(270deg, 3%, 87%);
+  font-size: 1.8rem;
+}
+body .content form .form-group input[type=text]::placeholder, body .content form .form-group input[type=number]::placeholder {
+  color: hsl(270deg, 3%, 87%);
+  font-size: 1.8rem;
+}
+body .content form .form-group input[type=text]:hover, body .content form .form-group input[type=number]:hover {
+  outline: 1px solid hsl(278deg, 68%, 11%);
+}
+body .content form .form-group.last {
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 4rem;
+}
+body .content form .form-group.last label {
+  display: block;
+}
+body .content form .form-group.last .exp-date {
+  width: 63%;
+}
+body .content form .form-group.last .exp-date input[type=number] {
+  width: 42%;
+}
+body .content form input[type=submit] {
+  width: 100%;
+  background-color: hsl(278deg, 68%, 11%);
+  color: hsl(0deg, 0%, 100%);
+  line-height: 4rem;
+  font-size: 1.7rem;
+  font-weight: 500;
+  border-radius: 8px;
+  border: none;
 }/*# sourceMappingURL=main.css.map */
