@@ -1,0 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  font-size: 1.8rem;
+  display: flex;
+}
+body .card {
+  width: 30%;
+  background: url(../images/bg-main-desktop.png);
+}
+body .card .front, body .card .back {
+  width: 100%;
+  max-width: 44.7rem;
+  height: 24.5rem;
+  padding: 3rem;
+  position: absolute;
+  box-shadow: 0px 1px 18px 4px rgba(0, 0, 0, 0.71);
+  border-radius: 11px;
+  letter-spacing: 0.3rem;
+  color: white;
+}
+body .card .front {
+  background: url(../images/bg-card-front.png);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  top: 18rem;
+  left: 12rem;
+}
+body .card .front .card-info .number {
+  font-size: 2.8rem;
+  padding-bottom: 3rem;
+}
+body .card .front .card-info .name_date {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.3rem;
+}
+body .card .front .card-info .name_date .name {
+  text-transform: uppercase;
+}
+body .card .back {
+  background: url(../images/bg-card-back.png);
+  top: 46rem;
+  left: 21rem;
+  position: relative;
+}
+body .card .back .cvc {
+  position: absolute;
+  right: 4rem;
+  top: 45%;
+  font-size: 1.3rem;
+}
+body .content {
+  width: 70%;
+  background-color: hsl(0deg, 0%, 100%);
+}/*# sourceMappingURL=main.css.map */

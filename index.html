@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="scss/main.css">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
@@ -15,8 +19,41 @@
   </style>
 </head>
 <body>
+  <div class="card">
+    <div class="front">
+      <div class="logo">
+        <img src="images/card-logo.svg" alt="logo card">
+      </div>
+      <div class="card-info">
+        <div class="number">
+          <p>0000 0000 0000 0000</p>
+        </div>
+        <div class="name_date">
+          <p class="name">jane aplessed</p>
+          <span>00/00</span>
+        </div>
+      </div>
+    </div>
+    <div class="back">
+      <div class="cvc">
+        <span>000</span>
+      </div>
+    </div>
+  </div>
+  <main class="content">
+    <form action="#">
+      <div class="form-group">
+        <label for="name">Cardholder Name</label>
+        <input type="text" name="name" id="name">
+      </div>
+      <div class="form-group">
+        <label for="card-number">Card Number</label>
+        <input type="number" name="card-number" id="card-number">
+      </div>
+    </form>
+  </main>
 
-  0000 0000 0000 0000
+  <!-- 0000 0000 0000 0000
   Jane Appleseed
   00/00
 
@@ -37,7 +74,7 @@
 
   Confirm
 
-  <!-- Completed state start -->
+  ((Completed state start ))
 
   Thank you!
   We've added your card details
@@ -46,6 +83,6 @@
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
-  </div>
+  </div> -->
 </body>
 </html>
