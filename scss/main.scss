@@ -220,7 +220,14 @@ body {
             }
         }
     }
-    @media (max-width:600px) {
+
+    footer {
+        margin-top: 10rem;
+        position: absolute;
+        bottom: 2rem;
+        left: 55%;
+    }
+    @media (max-width:1100px) {
         flex-direction: column;
         .card {
             height: 28.5%;
@@ -269,6 +276,9 @@ body {
             form {
                 width: 85%;
             }
+        }
+        footer {
+            position:static;
         }
     }
     

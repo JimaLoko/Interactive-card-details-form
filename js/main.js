@@ -138,12 +138,6 @@ inputCvc.addEventListener('input', () => {
     }
 })
 
-
-// console.log()
-// form.onsubmit = e => {
-    
-// }
-
 submit.addEventListener('click', e => {
     e.preventDefault()
     let error = false
