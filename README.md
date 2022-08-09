@@ -12,6 +12,7 @@ This is a solution to the [Interactive card details form challenge on Frontend M
   - [Built with](#built-with)
 
 ## Overview
+
 ### The challenge
 
 Users should be able to:
@@ -46,6 +47,9 @@ Complete state mobile
 ![](design/complete-state-mobile.jpg)
 
 ### Links
+
+- Solution URL: [Interactive card details form solution](https://www.frontendmentor.io/solutions/nft-preview-card-component-solution-DuobMbQVTR)
+- Live Site URL: [GitHub Pages](https://jimaloko.github.io/Interactive-card-details-form/)
 
 ## My process
 
