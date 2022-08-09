@@ -3,6 +3,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Space Grotesk', sans-serif;
+    outline: none;
+    border: 0;
 }
 
 html {
@@ -13,39 +15,31 @@ $white: hsl(0, 0%, 100%);
 $Light-grayish-violet: hsl(270, 3%, 87%);
 $Dark-grayish-violet: hsl(279, 6%, 55%);
 $Very-dark-violet: hsl(278, 68%, 11%);
+$error: hsl(0, 100%, 66%);
+
 
 @keyframes float-01 {
     0% {
-        transform: scale(1);
-        top: 180px;
-        // transform: translateY(20px);
+        transform: translateY(20px) scale(1);
     }
     50% {
         transform: scale(1.05);
-        top: 190px;
-        // transform: translateY(0px);
+        transform: translateY(0) scale(1.05);
     }
     100% {
         transform: scale(1);
-        top: 180px;
-        // transform: translateY(20px);
+        transform: translateY(20px) scale(1);
     }
 }
 @keyframes float-02 {
     0% {
-        transform: scale(1);
-        top: 46rem;
-        // transform: translateY(20px);
+        transform: translateY(20px) scale(1);
     }
     50% {
-        transform: scale(1.05);
-        top: 46rem;
-        // transform: translateY(0px);
+        transform: translateY(0) scale(1.05);
     }
     100% {
-        transform: scale(1);
-        top: 46rem;
-        // transform: translateY(20px);
+        transform: translateY(20px) scale(1);
     }
 }
 
@@ -56,6 +50,7 @@ body {
     font-size: 1.8rem;
     display: flex;
     .card {
+        pointer-events: none;
         width: 30%;
         background: url(../images/bg-main-desktop.png);
         .front, .back {
@@ -77,9 +72,6 @@ body {
             justify-content: space-between;
             top: 18rem;
             left: 12rem;
-            .logo {
-                
-            }
             .card-info {
                 .number {
                     font-size: 2.8rem;
@@ -91,9 +83,6 @@ body {
                     font-size: 1.3rem;
                     .name {
                         text-transform: uppercase;
-                    }
-                    span {
-                        
                     }
                 }
             }
@@ -133,7 +122,7 @@ body {
                     letter-spacing: 0.1rem;
                     margin-bottom: 1rem;
                 }
-                input[type=text], input[type=number] {
+                input[type=text] {
                     width: 100%;
                     line-height: 4rem;
                     border: 1px solid $Light-grayish-violet;
@@ -143,8 +132,24 @@ body {
                         color: $Light-grayish-violet;
                         font-size: 1.8rem;
                     }
-                    &:hover {
-                        outline: 1px solid $Very-dark-violet;
+                    &.on-focus {
+                        border: 1px solid $Very-dark-violet
+                    }
+                    &.error-state {
+                        border: 1px solid $error;
+                    }
+                }
+                span {
+                    transition: all .3s;
+                    opacity: 0;
+                    color: $error;
+                    text-transform: none;
+                    font-size: small;
+                    margin-top: 1rem;
+                    transform: translateY(20px);
+                    &.active {
+                        opacity: 1;
+                        transform: translateY(0);
                     }
                 }
                 &.last {
@@ -156,9 +161,12 @@ body {
                     }
                     .exp-date {
                         width: 63%;
-                        input[type=number] {
+                        input[type=text] {
                             width: 42%;
                         }
+                    }
+                    .cvc2 {
+                        width: 70%;
                     }
                 }
             }
@@ -166,12 +174,102 @@ body {
                 width: 100%;
                 background-color: $Very-dark-violet;
                 color: $white;
-                line-height: 4rem;
+                line-height: 5rem;
                 font-size: 1.7rem;
                 font-weight: 500;
                 border-radius: 8px;
                 border: none;
             }
+            &.hidden {
+                display: none;
+            }
+        }
+        .modal {
+            width: 70%;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: none;
+            .icon-complete {
+                margin-bottom: 3rem;
+            }
+            h1 {
+                color: $Very-dark-violet;
+                font-size: 2.5rem;
+                font-weight: 500;
+                letter-spacing: 0.3rem;
+                margin-bottom: 2rem;
+            }
+            p {
+                color: $Dark-grayish-violet;
+                font-size: 1.5rem;
+                margin-bottom: 4.5rem;
+            }
+            button {
+                width: 46%;
+                background-color: $Very-dark-violet;
+                color: $white;
+                line-height: 5rem;
+                font-size: 1.7rem;
+                font-weight: 500;
+                border-radius: 8px;
+                border: none;
+            }
+            &.active {
+                display: flex;
+            }
         }
     }
+    @media (max-width:600px) {
+        flex-direction: column;
+        .card {
+            height: 28.5%;
+            width: 100%;
+            background: url(../images/bg-main-mobile.png);
+            margin-bottom: 10rem;
+
+            .front, .back {
+                background-size: contain;
+                background-repeat: no-repeat;
+                max-width: 28.1rem;
+                height: 15.4rem;
+                padding: 2rem;
+            }
+            .front {
+                animation: none;
+                z-index: 2;
+                top: 12.9rem;
+                left: 2.2rem;
+                .logo {
+                    img {
+                        width: 27%;
+                    }
+                }
+                .card-info {
+                    .number {
+                        font-size: 1.6rem;
+                        padding-bottom: 1.5rem;
+                    }
+                    .name_date {
+                        font-size: 1rem;
+                    }
+                }
+            }
+            .back {
+                animation: none;
+                top: 4.1rem;
+                left: 8.2rem;
+                .cvc {
+                    font-size: 1rem;
+                }
+            }
+        }
+        .content {
+            width: 100%;
+            form {
+                width: 85%;
+            }
+        }
+    }
+    
 }

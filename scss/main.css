@@ -3,6 +3,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Space Grotesk", sans-serif;
+  outline: none;
+  border: 0;
 }
 
 html {
@@ -11,59 +13,51 @@ html {
 
 @-webkit-keyframes float-01 {
   0% {
-    transform: scale(1);
-    top: 180px;
+    transform: translateY(20px) scale(1);
   }
   50% {
     transform: scale(1.05);
-    top: 190px;
+    transform: translateY(0) scale(1.05);
   }
   100% {
     transform: scale(1);
-    top: 180px;
+    transform: translateY(20px) scale(1);
   }
 }
 
 @keyframes float-01 {
   0% {
-    transform: scale(1);
-    top: 180px;
+    transform: translateY(20px) scale(1);
   }
   50% {
     transform: scale(1.05);
-    top: 190px;
+    transform: translateY(0) scale(1.05);
   }
   100% {
     transform: scale(1);
-    top: 180px;
+    transform: translateY(20px) scale(1);
   }
 }
 @-webkit-keyframes float-02 {
   0% {
-    transform: scale(1);
-    top: 46rem;
+    transform: translateY(20px) scale(1);
   }
   50% {
-    transform: scale(1.05);
-    top: 46rem;
+    transform: translateY(0) scale(1.05);
   }
   100% {
-    transform: scale(1);
-    top: 46rem;
+    transform: translateY(20px) scale(1);
   }
 }
 @keyframes float-02 {
   0% {
-    transform: scale(1);
-    top: 46rem;
+    transform: translateY(20px) scale(1);
   }
   50% {
-    transform: scale(1.05);
-    top: 46rem;
+    transform: translateY(0) scale(1.05);
   }
   100% {
-    transform: scale(1);
-    top: 46rem;
+    transform: translateY(20px) scale(1);
   }
 }
 body {
@@ -74,6 +68,7 @@ body {
   display: flex;
 }
 body .card {
+  pointer-events: none;
   width: 30%;
   background: url(../images/bg-main-desktop.png);
 }
@@ -148,27 +143,43 @@ body .content form .form-group label {
   letter-spacing: 0.1rem;
   margin-bottom: 1rem;
 }
-body .content form .form-group input[type=text], body .content form .form-group input[type=number] {
+body .content form .form-group input[type=text] {
   width: 100%;
   line-height: 4rem;
   border: 1px solid hsl(270deg, 3%, 87%);
   border-radius: 11px;
   padding-left: 1.5rem;
 }
-body .content form .form-group input[type=text]::-moz-placeholder, body .content form .form-group input[type=number]::-moz-placeholder {
+body .content form .form-group input[type=text]::-moz-placeholder {
   color: hsl(270deg, 3%, 87%);
   font-size: 1.8rem;
 }
-body .content form .form-group input[type=text]:-ms-input-placeholder, body .content form .form-group input[type=number]:-ms-input-placeholder {
+body .content form .form-group input[type=text]:-ms-input-placeholder {
   color: hsl(270deg, 3%, 87%);
   font-size: 1.8rem;
 }
-body .content form .form-group input[type=text]::placeholder, body .content form .form-group input[type=number]::placeholder {
+body .content form .form-group input[type=text]::placeholder {
   color: hsl(270deg, 3%, 87%);
   font-size: 1.8rem;
 }
-body .content form .form-group input[type=text]:hover, body .content form .form-group input[type=number]:hover {
-  outline: 1px solid hsl(278deg, 68%, 11%);
+body .content form .form-group input[type=text].on-focus {
+  border: 1px solid hsl(278deg, 68%, 11%);
+}
+body .content form .form-group input[type=text].error-state {
+  border: 1px solid hsl(0deg, 100%, 66%);
+}
+body .content form .form-group span {
+  transition: all 0.3s;
+  opacity: 0;
+  color: hsl(0deg, 100%, 66%);
+  text-transform: none;
+  font-size: small;
+  margin-top: 1rem;
+  transform: translateY(20px);
+}
+body .content form .form-group span.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 body .content form .form-group.last {
   flex-direction: row;
@@ -181,16 +192,107 @@ body .content form .form-group.last label {
 body .content form .form-group.last .exp-date {
   width: 63%;
 }
-body .content form .form-group.last .exp-date input[type=number] {
+body .content form .form-group.last .exp-date input[type=text] {
   width: 42%;
+}
+body .content form .form-group.last .cvc2 {
+  width: 70%;
 }
 body .content form input[type=submit] {
   width: 100%;
   background-color: hsl(278deg, 68%, 11%);
   color: hsl(0deg, 0%, 100%);
-  line-height: 4rem;
+  line-height: 5rem;
   font-size: 1.7rem;
   font-weight: 500;
   border-radius: 8px;
   border: none;
+}
+body .content form.hidden {
+  display: none;
+}
+body .content .modal {
+  width: 70%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: none;
+}
+body .content .modal .icon-complete {
+  margin-bottom: 3rem;
+}
+body .content .modal h1 {
+  color: hsl(278deg, 68%, 11%);
+  font-size: 2.5rem;
+  font-weight: 500;
+  letter-spacing: 0.3rem;
+  margin-bottom: 2rem;
+}
+body .content .modal p {
+  color: hsl(279deg, 6%, 55%);
+  font-size: 1.5rem;
+  margin-bottom: 4.5rem;
+}
+body .content .modal button {
+  width: 46%;
+  background-color: hsl(278deg, 68%, 11%);
+  color: hsl(0deg, 0%, 100%);
+  line-height: 5rem;
+  font-size: 1.7rem;
+  font-weight: 500;
+  border-radius: 8px;
+  border: none;
+}
+body .content .modal.active {
+  display: flex;
+}
+@media (max-width: 600px) {
+  body {
+    flex-direction: column;
+  }
+  body .card {
+    height: 28.5%;
+    width: 100%;
+    background: url(../images/bg-main-mobile.png);
+    margin-bottom: 10rem;
+  }
+  body .card .front, body .card .back {
+    background-size: contain;
+    background-repeat: no-repeat;
+    max-width: 28.1rem;
+    height: 15.4rem;
+    padding: 2rem;
+  }
+  body .card .front {
+    -webkit-animation: none;
+            animation: none;
+    z-index: 2;
+    top: 12.9rem;
+    left: 2.2rem;
+  }
+  body .card .front .logo img {
+    width: 27%;
+  }
+  body .card .front .card-info .number {
+    font-size: 1.6rem;
+    padding-bottom: 1.5rem;
+  }
+  body .card .front .card-info .name_date {
+    font-size: 1rem;
+  }
+  body .card .back {
+    -webkit-animation: none;
+            animation: none;
+    top: 4.1rem;
+    left: 8.2rem;
+  }
+  body .card .back .cvc {
+    font-size: 1rem;
+  }
+  body .content {
+    width: 100%;
+  }
+  body .content form {
+    width: 85%;
+  }
 }/*# sourceMappingURL=main.css.map */
