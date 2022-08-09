@@ -71,6 +71,7 @@ body .card {
   pointer-events: none;
   width: 30%;
   background: url(../images/bg-main-desktop.png);
+  background-size: cover;
 }
 body .card .front, body .card .back {
   width: 100%;
